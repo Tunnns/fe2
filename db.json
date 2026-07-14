@@ -1,3 +1,19 @@
 {
-  "stories": []
+  "stories": [
+    {
+      "id": "1",
+      "title": "2",
+      "image": "3",
+      "author": "4",
+      "description": "5"
+    },
+    {
+      "title": "a",
+      "author": "a",
+      "image": "a",
+      "description": "a",
+      "createdAt": "2026-07-14T11:05:19.898Z",
+      "id": "ABgrgLS"
+    }
+  ]
 }
