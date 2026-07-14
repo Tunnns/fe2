@@ -3,6 +3,7 @@ import { Link, Route, Routes } from "react-router-dom";
 import "antd/dist/reset.css";
 import Lab1 from "./lab/1";
 import Lab2 from "./lab/2";
+import Lab3 from './lab/3'
 
 
 function App() {
@@ -20,6 +21,9 @@ function App() {
             </Link>
             <Link to="/lab1" className="hover:text-gray-200">
               lab1
+            </Link>
+            <Link to="/lab3" className="hover:text-gray-200">
+              lab3
             </Link>
             <Link to="/add" className="hover:text-gray-200">
               Thêm mới
@@ -48,6 +52,7 @@ function App() {
       <Routes>
         <Route path="/lab1" element={<Lab1 />} />
         <Route path="/" element={<Lab2 />} />
+        <Route path="/lab3" element={<Lab3 />} />
       </Routes>
       <Toaster />
     </>
