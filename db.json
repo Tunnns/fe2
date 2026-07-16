@@ -1,19 +1,49 @@
 {
   "stories": [
     {
-      "id": "1",
-      "title": "2",
-      "image": "3",
-      "author": "4",
-      "description": "5"
+      "id": 1,
+      "title": "Harry Potter Và Hòn Đá Phù Thủy",
+      "author": "J. K. Rowling",
+      "cover": "https://picsum.photos/300/450?random=1",
+      "categoryId": 1
     },
     {
-      "title": "a",
-      "author": "a",
-      "image": "a",
-      "description": "a",
-      "createdAt": "2026-07-14T11:05:19.898Z",
-      "id": "ABgrgLS"
+      "id": 2,
+      "title": "Conan Tập 1",
+      "author": "Gosho Aoyama",
+      "cover": "https://picsum.photos/300/450?random=2",
+      "categoryId": 2
+    },
+    {
+      "title": "ten truyen",
+      "id": 3,
+      "author": "",
+      "cover": "",
+      "categoryId": 1
+    },
+    {
+      "title": "ten truyen",
+      "id": 4,
+      "author": "",
+      "cover": "",
+      "categoryId": 1
+    },
+    {
+      "title": "ádádas",
+      "id": 5,
+      "author": "",
+      "cover": "",
+      "categoryId": 2
+    }
+  ],
+  "categories": [
+    {
+      "id": 1,
+      "title": "Tiểu thuyết"
+    },
+    {
+      "id": 2,
+      "title": "Truyện tranh"
     }
   ]
 }
