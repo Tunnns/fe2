@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState } from "react"; 
 import { Table, Image, Spin, Button, Input, Form, Modal, Space, message, Popconfirm } from "antd";
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import axios from "axios";
@@ -154,6 +154,7 @@ const StoryList = () => {
             name="title"
             rules={[{ required: true, message: "nhập tên truyện" }]}
           >
+            <Input />
           </Form.Item>
 
           <Form.Item
@@ -161,6 +162,7 @@ const StoryList = () => {
             name="author"
             rules={[{ required: true, message: "nhập tác giả" }]}
           >
+            <Input />
           </Form.Item>
 
           <Form.Item
@@ -168,6 +170,7 @@ const StoryList = () => {
             name="image"
             rules={[{ required: true, message: "nhập URL ảnh" }]}
           >
+            <Input />
           </Form.Item>
 
           <Form.Item
@@ -175,6 +178,7 @@ const StoryList = () => {
             name="description"
             rules={[{ required: true, message: "nhập mô tả" }]}
           >
+            <Input.TextArea />
           </Form.Item>
 
           <Form.Item style={{ textAlign: "right", marginBottom: 0 }}>
