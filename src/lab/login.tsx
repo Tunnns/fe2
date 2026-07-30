@@ -1,19 +1,21 @@
-
-import {useContext} from 'react';
-import {UserContext} from '../context/usercontext';
+// import { useContext } from 'react';
+import { Button } from 'antd';
+// import { UserContext } from '../context/usercontext';
+import useAuthStore from './zustand/useAuthStore';
 
 const Login = () => {
-    const {setUser}=useContext(UserContext);
+    const { setUser } = useAuthStore();
 
-    return(
-        <button
-        type="button"
-         onClick={()=>
-            setUser({
-            username:'username',
-            email:'123@gmail.com',
-        })}>login</button>
-    ) 
+    return (
+        <div>
+            <h2>Login</h2>
+            <Button
+                type="primary"
+                onClick={() => setUser({ username: "1@1.com", email: "1@1.com" })}>
+                Login
+            </Button>
+        </div>
+    )
 };
 
 export default Login;

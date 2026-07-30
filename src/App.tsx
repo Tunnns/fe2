@@ -10,10 +10,11 @@ import Update from './lab/update'
 import Login from './lab/login'
 import { UserContext } from "./context/usercontext";
 import { useContext } from "react";
+import useAuthStore from './lab/zustand/useAuthStore';
 
 function App() {
 
-  const {user} = useContext(UserContext);
+  const { user, logout } = useAuthStore();
 
   return (
     <>
@@ -44,13 +45,29 @@ function App() {
             </Link>
           </div>
 
-          <div className="hidden md:flex items-center space-x-6" >
-            <Link to="/login" className="hover:text-gray-200">
-              Đăng nhập
-            </Link>
-            <Link to="/register" className="hover:text-gray-200">
-              Đăng ký
-            </Link>
+          <div className="hidden md:flex items-center space-x-6">
+            {user ? (
+              <>
+                <span>{user.email}</span>
+                <button
+                  type="button"
+                  onClick={logout}
+                  className="hover:text-gray-200"
+                >
+                  Đăng xuất
+                </button>
+              </>
+            ) : (
+              <>
+                <span>Chưa đăng nhập</span>
+                <Link to="/login" className="hover:text-gray-200">
+                  Đăng nhập
+                </Link>
+                <Link to="/register" className="hover:text-gray-200">
+                  Đăng ký
+                </Link>
+              </>
+            )}
           </div>
         </div>
       </nav>
