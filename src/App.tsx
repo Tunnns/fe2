@@ -6,9 +6,15 @@ import Lab2 from "./lab/2";
 import Lab3 from './lab/3';
 import Lab4 from './lab/4'
 import Lab5 from './lab/5'
-import Lab6 from './lab/6'
+import Update from './lab/update'
+import Login from './lab/login'
+import { UserContext } from "./context/usercontext";
+import { useContext } from "react";
 
 function App() {
+
+  const {user} = useContext(UserContext);
+
   return (
     <>
       <nav className="bg-blue-600 text-white shadow">
@@ -38,11 +44,11 @@ function App() {
             </Link>
           </div>
 
-          <div className="hidden md:flex items-center space-x-6">
-            <Link to="/reg" className="hover:text-gray-200">
+          <div className="hidden md:flex items-center space-x-6" >
+            <Link to="/login" className="hover:text-gray-200">
               Đăng nhập
             </Link>
-            <Link to="#" className="hover:text-gray-200">
+            <Link to="/register" className="hover:text-gray-200">
               Đăng ký
             </Link>
           </div>
@@ -63,7 +69,8 @@ function App() {
         <Route path="/lab3" element={<Lab3 />} />
         <Route path="/lab4" element={<Lab4 />} />
         <Route path="/lab5" element={<Lab5 />} />
-        <Route path="/lab6" element={<Lab6 />} />
+        <Route path="/update" element={<Update />} />
+        <Route path="/login" element={<Login />} />
       </Routes>
       <Toaster />
     </>
