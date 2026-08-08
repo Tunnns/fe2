@@ -3,6 +3,7 @@ import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import axios from "axios";
 import { useParams, useNavigate } from "react-router-dom";
 import { useEffect } from "react";
+import useUpdateStory from "./hook/useUpdateStory";
 
 const EditStory = () => {
   const [form] = Form.useForm();
@@ -19,7 +20,6 @@ const EditStory = () => {
     },
   });
 
-  // Fill form
   useEffect(() => {
     if (data) {
       form.setFieldsValue(data);
@@ -27,21 +27,23 @@ const EditStory = () => {
   }, [data]);
 
   // Update
-  const mutation = useMutation({
-    mutationFn: async (values: any) => {
-      return axios.put(`http://localhost:3000/stories/${id}`, values);
-    },
-    onSuccess: () => {
-      // reload list
-      queryClient.invalidateQueries({ queryKey: ["stories"] });
+  // const mutation = useMutation({
+  //   mutationFn: async (values: any) => {
+  //     return axios.put(`http://localhost:3000/stories/${id}`, values);
+  //   },
+  //   onSuccess: () => {
+  //     // reload list
+  //     queryClient.invalidateQueries({ queryKey: ["stories"] });
 
-      // quay lại list
-      navigate("/");
-    },
-  });
+  //     // quay lại list
+  //     navigate("/lab4");
+  //   },
+  // });
+  const mutation = useUpdateStory();
 
   const onFinish = (values: any) => {
     mutation.mutate(values);
+    navigate("/lab4");
   };
 
   if (isLoading) return <Spin />;

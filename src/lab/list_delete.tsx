@@ -2,6 +2,8 @@ import { useState } from "react";
 import { Table, Image, Spin, Button, Input, Form, Modal, Space, message, Popconfirm } from "antd";
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
+import useStoryList from "./hook/useStoryList";
 
 interface Story {
   id: string | number;
@@ -13,37 +15,38 @@ interface Story {
 }
 
 const StoryList = () => {
+  const navigate = useNavigate();
   const queryClient = useQueryClient();
   const [keyword, setKeyword] = useState("");
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [form] = Form.useForm();
 
-  const { data, isLoading, isError } = useQuery<Story[]>({
-    queryKey: ["stories"],
-    queryFn: async () => {
-      const res = await axios.get("http://localhost:3000/stories");
-      return res.data;
-    },
-  });
+  // const { data, isLoading, isError } = useQuery<Story[]>({
+  //   queryKey: ["stories"],
+  //   queryFn: async () => {
+  //     const res = await axios.get("http://localhost:3000/stories");
+  //     return res.data;
+  //   },
+  // });
 
-  const addMutation = useMutation({
-    mutationFn: async (newStory: Omit<Story, "id">) => {
-      const res = await axios.post("http://localhost:3000/stories", {
-        ...newStory,
-        createdAt: new Date().toISOString(),
-      });
-      return res.data;
-    },
-    onSuccess: () => {
-      message.success("Thêm truyện thành công");
-      setIsModalOpen(false);
-      form.resetFields();
-      queryClient.invalidateQueries({ queryKey: ["stories"] });
-    },
-    onError: () => {
-      message.error("Lỗi khi thêm truyện");
-    },
-  });
+  // const addMutation = useMutation({
+  //   mutationFn: async (newStory: Omit<Story, "id">) => {
+  //     const res = await axios.post("http://localhost:3000/stories", {
+  //       ...newStory,
+  //       createdAt: new Date().toISOString(),
+  //     });
+  //     return res.data;
+  //   },
+  //   onSuccess: () => {
+  //     message.success("Thêm truyện thành công");
+  //     setIsModalOpen(false);
+  //     form.resetFields();
+  //     queryClient.invalidateQueries({ queryKey: ["stories"] });
+  //   },
+  //   onError: () => {
+  //     message.error("Lỗi khi thêm truyện");
+  //   },
+  // });
 
   const deleteMutation = useMutation({
     mutationFn: async (id: string | number) => {
@@ -62,9 +65,11 @@ const StoryList = () => {
     deleteMutation.mutate(id);
   };
 
-  const handleAddStory = (values: Omit<Story, "id">) => {
-    addMutation.mutate(values);
-  };
+  // const handleAddStory = (values: Omit<Story, "id">) => {
+  //   addMutation.mutate(values);
+  // };
+
+  const {data, isError, isFetching} = useStoryList();
 
   const columns = [
     {
@@ -103,25 +108,35 @@ const StoryList = () => {
       title: "Action",
       key: "action",
       render: (_: any, record: Story) => (
+        <Space>
+          {/* xem chi tiet */}
+          <Button type="default" onClick={() => navigate(`/detail/${record.id}`)}>
+            Detail
+          </Button>
+          {/* xoá */}
         <Popconfirm
           title="xóa truyện này ?"
           onConfirm={() => handleDelete(record.id)}
           okText="Xóa"
-          cancelText="Hủy"
-        >
+          cancelText="Hủy">
           <Button type="primary" danger>
             Xóa
           </Button>
         </Popconfirm>
+        {/* edit */}
+        <Button type="primary" onClick={() => navigate(`/update/${record.id}`)}>
+          Edit
+        </Button>
+        </Space>
       ),
-    },
+    }
   ];
 
-
+// filter truyện (đánh số trang)
   const filteredData = data?.filter((item: Story) =>
     item.title?.toLowerCase().includes(keyword.toLowerCase())
   );
-
+  // thêm truyện giống lab4
   return (
     <div>
       <div>
@@ -142,7 +157,7 @@ const StoryList = () => {
         pagination={{ pageSize: 5 }}
       />
 
-      <Modal
+      {/* <Modal
         title="Thêm truyện mới"
         open={isModalOpen}
         onCancel={() => setIsModalOpen(false)}
@@ -190,7 +205,7 @@ const StoryList = () => {
             </Space>
           </Form.Item>
         </Form>
-      </Modal>
+      </Modal> */}
     </div>
   );
 };

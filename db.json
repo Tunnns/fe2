@@ -1,11 +1,11 @@
 {
   "stories": [
     {
-      "id": 1,
       "title": "Harry Potter Và Hòn Đá Phù Thủy",
       "author": "J. K. Rowling",
-      "cover": "https://picsum.photos/300/450?random=1",
-      "categoryId": 1
+      "image": "1",
+      "description": "111",
+      "id": 1
     },
     {
       "id": 2,
@@ -29,11 +29,52 @@
       "categoryId": 1
     },
     {
-      "title": "ádádas",
-      "id": 5,
-      "author": "",
-      "cover": "",
-      "categoryId": 2
+      "title": "êree",
+      "description": "tểtrterterter",
+      "image": "tểtrtret",
+      "categoryId": 1,
+      "active": "êrtre",
+      "id": 6
+    },
+    {
+      "title": "ertertre",
+      "author": "erterte",
+      "image": "erterte",
+      "description": "eterterte",
+      "createdAt": "2026-08-01T10:18:58.935Z",
+      "id": 7
+    },
+    {
+      "title": "weqweqwe",
+      "author": "qweqweqweqw",
+      "image": "qweqweqw",
+      "description": "eqweqwewqew",
+      "createdAt": "2026-08-01T10:19:09.919Z",
+      "id": 8
+    },
+    {
+      "title": "12312321",
+      "description": "12312321",
+      "image": "12312321",
+      "categoryId": 1,
+      "active": "12312321",
+      "id": 9
+    },
+    {
+      "title": "5555",
+      "author": "5555",
+      "image": "555",
+      "description": "555",
+      "createdAt": "2026-08-01T10:21:20.542Z",
+      "id": 10
+    },
+    {
+      "title": "66666666",
+      "description": "66666666",
+      "image": "66666666",
+      "categoryId": 1,
+      "active": "66666666",
+      "id": 11
     }
   ],
   "categories": [
@@ -45,7 +86,8 @@
       "id": 2,
       "title": "Truyện tranh"
     }
-  ],"users": [
+  ],
+  "users": [
     {
       "email": "admin@gmail.com",
       "password": "$2a$10$3cvf5QEZ67nFSzYpYScBiOcyghM9w/Y.2HoZs/9ZJC6qccHPv62Cq",

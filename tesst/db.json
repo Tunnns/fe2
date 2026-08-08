@@ -1,0 +1,18 @@
+{
+  "courses": [
+    {
+      "title": "1e121",
+      "duration": "1123123213",
+      "thumbnail": "12312321",
+      "category": "React",
+      "id": 1
+    },
+    {
+      "title": "sfsdfas",
+      "duration": "123123123",
+      "thumbnail": "asdfasdf",
+      "category": "React",
+      "id": 2
+    }
+  ]
+}

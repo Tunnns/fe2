@@ -1,6 +1,8 @@
 import { useMutation, useQuery } from "@tanstack/react-query";
 import { Button, Form, Input, message, Select } from "antd";
 import axios from "axios";
+import { useAddStory } from "./hook/useAddStory";
+import { useNavigate } from "react-router-dom";
 
 interface StoryForm {
     title: string;
@@ -16,6 +18,7 @@ interface Category {
 }
 
 function Lab5() {
+    const navigate = useNavigate();
     const { data: categories, isLoading: isCategoriesLoading } = useQuery<Category[]>({
         queryKey: ["categories"],
         queryFn: async () => {
@@ -24,21 +27,24 @@ function Lab5() {
         }
     });
 
-    const { mutate, isPending } = useMutation({
-        mutationFn: async (data: StoryForm) => {
-            await axios.post("http://localhost:3000/stories", data);
-        },
-        onSuccess: () => {
-            message.success("Them thanh cong");
-        },
-        onError: () => {
-            message.error("Them that bai");
-        },
-    });
+    // const { mutate, isPending } = useMutation({
+    //     mutationFn: async (data: StoryForm) => {
+    //         await axios.post("http://localhost:3000/stories", data);
+    //     },
+    //     onSuccess: () => {
+    //         message.success("Them thanh cong");
+    //     },
+    //     onError: () => {
+    //         message.error("Them that bai");
+    //     },
+    // });
+const { mutate, isPending } = useAddStory();
+
 
     const onFinish = (values: StoryForm) => {
         console.log(values);
         mutate(values);
+        navigate("/lab4");
     };
 
     const categoryOptions = categories?.map((category) => ({

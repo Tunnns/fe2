@@ -4,12 +4,12 @@ import "antd/dist/reset.css";
 import Lab1 from "./lab/1";
 import Lab2 from "./lab/2";
 import Lab3 from './lab/3';
-import Lab4 from './lab/4'
-import Lab5 from './lab/5'
+import Lab4 from './lab/list_delete'
+import Lab5 from './lab/add'
 import Update from './lab/update'
 import Login from './lab/login'
-import { UserContext } from "./context/usercontext";
-import { useContext } from "react";
+// import { UserContext } from "./context/usercontext";
+// import { useContext } from "react";
 import useAuthStore from './lab/zustand/useAuthStore';
 
 function App() {
@@ -59,7 +59,7 @@ function App() {
               </>
             ) : (
               <>
-                <span>Chưa đăng nhập</span>
+                <span>chưa đăng nhập</span>
                 <Link to="/login" className="hover:text-gray-200">
                   Đăng nhập
                 </Link>
@@ -86,7 +86,7 @@ function App() {
         <Route path="/lab3" element={<Lab3 />} />
         <Route path="/lab4" element={<Lab4 />} />
         <Route path="/lab5" element={<Lab5 />} />
-        <Route path="/update" element={<Update />} />
+        <Route path="/update/:id" element={<Update />} />
         <Route path="/login" element={<Login />} />
       </Routes>
       <Toaster />

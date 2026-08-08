@@ -1,0 +1,47 @@
+{
+  "animals": [
+    {
+      "id": 1,
+      "name": "Mèo Anh Lông Ngắn",
+      "species": "Mèo",
+      "age": 2,
+      "image": "https://placehold.co/300x200?text=Cat+1",
+      "description": "Giống mèo hiền lành."
+    },
+    {
+      "name": "asdasdasd",
+      "age": "asdasdas",
+      "image": "dadasdas",
+      "description": "asdasd",
+      "id": 5
+    },
+    {
+      "species": "Chó",
+      "id": 6
+    },
+    {
+      "name": "ffff",
+      "age": "ffff",
+      "image": "fff",
+      "description": "ffff",
+      "species": "Mèo",
+      "id": 7
+    },
+    {
+      "name": "wgwrw",
+      "age": "123",
+      "image": "tểtrtret",
+      "description": "Example Description",
+      "species": "Chó",
+      "id": 8
+    },
+    {
+      "name": "ádaádasdas",
+      "age": "ádasádas",
+      "image": "ádasádadas",
+      "description": "Example Description",
+      "species": "Chó",
+      "id": 9
+    }
+  ]
+}

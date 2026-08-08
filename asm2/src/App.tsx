@@ -1,9 +1,8 @@
 import { Toaster } from "react-hot-toast";
-import { Link , Route, Routes} from "react-router-dom";
-// import {Router} from "react-router-dom"
-import AddPage from "./pages/AddPage"
-import EditPage from "./pages/EditPage"
-import ListPage from "./pages/ListPage"
+import { Link, Route, Routes } from "react-router-dom";
+import ListPage from "./pages/ListPage";
+import AddPage from "./pages/AddPage";
+import EditPage from "./pages/EditPage";
 
 function App() {
   return (
@@ -18,9 +17,9 @@ function App() {
             <Link to="#" className="hover:text-gray-200">
               Trang chủ
             </Link>
-              {/* <Link to="/list" className="hover:text-gray-200">
-                Danh sách
-              </Link> */}
+            <Link to="/list" className="hover:text-gray-200">
+              Danh sách
+            </Link>
             <Link to="/add" className="hover:text-gray-200">
               Thêm mới
             </Link>
@@ -41,10 +40,11 @@ function App() {
       <div className="max-w-6xl mx-auto mt-10 px-4 text-center">
         <h1 className="text-4xl font-bold mb-4">Chào mừng đến với WEB2091</h1>
       </div>
+
         <Routes>
-          <Route path="/add" element={<AddPage/>} />
-          <Route path="/list" element={<ListPage/>} />
-          <Route path="/edit" element={<EditPage/>} />
+            <Route path="/list" element={<ListPage/>}/>
+            <Route path="/add" element={<AddPage/>}/>
+            <Route path="/edit/:id" element={<EditPage/>}/>
         </Routes>
       <Toaster />
     </>
