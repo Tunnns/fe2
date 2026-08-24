@@ -3,8 +3,6 @@ import { Button, Popconfirm, Space, Table } from "antd";
 import axios from "axios";
 
 function ListPage() {
-
-  // const queryClient = useQueryClient
   const {data}= useQuery<any[]>({
     queryKey:["animals"],
     queryFn: async ()=>{

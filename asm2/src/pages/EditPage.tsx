@@ -5,7 +5,6 @@ import { Button, Form, Input, Select } from "antd";
 import { useNavigate, useParams } from "react-router-dom";
 
 function EditPage() {
-
   const { id } = useParams()
   const [form] = Form.useForm<any>()
   const queryClient = useQueryClient()
@@ -44,11 +43,19 @@ function EditPage() {
       <h1 className="text-2xl font-semibold mb-6">sửa</h1>
       <Form layout="vertical" className="space-y-6" onFinish={handleEdit} form={form}>
         {/* Text input */}
-        <Form.Item label="name" name="name">
+        <Form.Item
+          label="name"
+          name="name"
+          rules={[{ required: true, whitespace: true, message: "Vui lòng nhập tên" }]}
+        >
           <Input placeholder="Nhập thông tin" />
         </Form.Item>
-        <Form.Item label="age" name="age">
-          <Input placeholder="Nhập thông tin" />
+        <Form.Item
+          label="age"
+          name="age"
+          rules={[{ required: true, message: "Vui lòng nhập tuổi" }]}
+        >
+          <Input type="number" placeholder="Nhập thông tin" />
         </Form.Item>
         <Form.Item label="image" name="image">
           <Input placeholder="Nhập thông tin" />

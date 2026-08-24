@@ -17,7 +17,6 @@ function EditPage() {
   const queryClient = useQueryClient();
   const nav = useNavigate();
 
-  // Lấy thông tin khóa học theo id
   const { data, isLoading } = useQuery({
     queryKey: ["course", id],
 
@@ -32,14 +31,12 @@ function EditPage() {
     enabled: Boolean(id),
   });
 
-  // Đưa dữ liệu cũ vào form
   useEffect(() => {
     if (data) {
       form.setFieldsValue(data);
     }
   }, [data, form]);
 
-  // Gửi dữ liệu cập nhật
   const editMutation = useMutation({
     mutationFn: async (values: KHForm) => {
       const res = await axios.patch(

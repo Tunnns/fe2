@@ -4,7 +4,6 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
 function AddPage() {
-
   const queryClient = useQueryClient()
   const nav = useNavigate()
   const addMutation = useMutation({
@@ -28,11 +27,19 @@ function AddPage() {
       <h1 className="text-2xl font-semibold mb-6">Thêm mới</h1>
       <Form layout="vertical" className="space-y-6" onFinish={handleAdd}>
         {/* Text input */}
-        <Form.Item label="name" name="name">
+        <Form.Item
+          label="name"
+          name="name"
+          rules={[{ required: true, whitespace: true, message: "Vui lòng nhập tên" }]}
+        >
           <Input placeholder="Nhập thông tin" />
         </Form.Item>
-        <Form.Item label="age" name="age">
-          <Input placeholder="Nhập thông tin" />
+        <Form.Item
+          label="age"
+          name="age"
+          rules={[{ required: true, message: "Vui lòng nhập tuổi" }]}
+        >
+          <Input type="number" placeholder="Nhập thông tin" />
         </Form.Item>
         <Form.Item label="image" name="image">
           <Input placeholder="Nhập thông tin" />

@@ -1,0 +1,44 @@
+{
+  "teachers": [
+    {
+      "id": 1,
+      "name": "Nguyễn Văn A",
+      "experience": 2,
+      "address": "trịnh văn bô, hà nội",
+      "email": "nguyenvana@gmail.com",
+      "active": true
+    },
+    {
+      "id": 2,
+      "name": "Nguyễn Văn A",
+      "experience": 2,
+      "address": "trịnh văn bô, hà nội",
+      "email": "nguyenvana@gmail.com",
+      "active": true
+    },
+    {
+      "name": "Nguyễn Văn A",
+      "experience": 2,
+      "address": "trịnh văn bô, hà nội",
+      "email": "nguyenvana@gmail.coma",
+      "active": true,
+      "id": 3
+    },
+    {
+      "name": "afdasf",
+      "experience": "asdfasdfasd",
+      "address": "fasdfasdfad",
+      "email": "sfasdfasdfa123121",
+      "id": 5
+    },
+    {
+      "name": "asdfsdfsdfas",
+      "experience": "fasdfasdfasdfdas",
+      "address": "asdfasdfasdf",
+      "email": "adsfasdfsd111111111111111111111111333333333333333",
+      "active": "adsfasdfasd",
+      "id": 6
+    }
+  ],
+  "users": []
+}
